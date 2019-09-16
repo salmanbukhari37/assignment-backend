@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var cors = require("cors");
 var path = require("path");
 var userRoute = require("./routes/route");
-require("./dbConfig/config");
+// require("./dbConfig/config");
 const jwt = require("jsonwebtoken");
 
 const UserSchema = require("./models/userModel");
