@@ -1,287 +1,46 @@
-# IAgility Practice Session
+# Rent a Car System
 
-This Repository is for testing/practice
+## Heroku UI Path
 
-## 3 Days Assignment
-
-### Auto Complete via Api Service
-
-## File Path
-
-### TS code
+### Login
 
 ```
-api-reservation/frontend/src/app/AutoComplete/AutoComplete.component.ts
+https://assignment-front-app.herokuapp.com/login
 ```
 
-### Form Validation with FormGroup Directive and FormControl Directive' 09/09/2019
-
-## File Path
-
-### TS code
-
 ```
-api-reservation/frontend/src/app/FlightForm/FlightForm.component.ts
+Username : admin
+Password : 123456
 ```
 
-### HTML code
+### Admin
 
 ```
-api-reservation/frontend/src/app/FlightForm/FlightForm.component.html
+https://assignment-front-app.herokuapp.com/admin
 ```
 
-![Screenshot](https://github.com/salmanbukhari37/api-reservation/blob/master/frontend/src/assets/images/Reservation-Form-validation.jpg)
-
-## Angular Assignment Reservation form 06/09/2019
-
-## File Path
-
-### TS code
+### Add New Car
 
 ```
-api-reservation/frontend/src/app/FlightForm/FlightForm.component.ts
+https://assignment-front-app.herokuapp.com/add-new-car
 ```
 
-![Screenshot](https://github.com/salmanbukhari37/api-reservation/blob/master/frontend/src/assets/images/Reservation-Form.jpg)
+## Heroku Node API's
 
-### HTML code
-
-```
-api-reservation/frontend/src/app/FlightForm/FlightForm.component.html
-```
-
-![Screenshot](https://github.com/salmanbukhari37/api-reservation/blob/master/frontend/src/assets/images/Table.jpg)
-
-## Dynamic Navigation Bar 05/09/2019
-
-## File Path
-
-### TS code
+### Login
 
 ```
-api-reservation/frontend/src/app/Navigation/Navigation.component.ts
-```
-
-### HTML code
-
-```
-api-reservation/frontend/src/app/Navigation/Navigation.component.html
-```
-
-## Calculator Assignment 05/09/2019
-
-### File Path
-
-```
-api-reservation/frontend/src/app/app.component.ts
-```
-
-## Reservation API
-
-### GET API
-
-```
-api/reservation/get
-```
-
-### POST API by ID
-
-```
-api/reservation/get/one
+[POST] https://assignment-front-app.herokuapp.com/login
 ```
 
 #### Request
 
 ```
 {
-	"id" : "5d5d48d853191c2d3898aa19"
-}
-```
-
-### POST API - add reservation
-
-```
-api/reservation/add
-```
-
-#### Request
-
-```
-{
-	"name" : "Salman Bukhari",
-	"email" : "salmanbukahri37@gmail.com",
-	"room_type" : "4 Bed Rooms",
-	"arrival_date" : "08/26/2019",
-	"departure_date" : "08/30/2019",
-	"number_of_guest" : "4",
-	"free_pickup" : "Yes",
-	"flight_number" : "ERS345234",
-	"special_request" : "VIP Guest"
-}
-```
-
-### POST API - update reservation
-
-```
-api/reservation/update
-```
-
-#### Request
-
-```
-{
-	"id" : "5d5d48d853191c2d3898aa19",
-	"updateData" : {
-		"email" : "salmanbukhariiiiiit@gmail.com",
-		"name" : "Mohammad Usman"
+	"loginCredentials" :{
+		"username" : "admin",
+		"password" : "123456"
 	}
-}
-```
-
-### POST API - delete reservation
-
-```
-api/reservation/delete
-```
-
-#### Request
-
-```
-{
-	"id" : "5d5d4a5dbacacd2c0c08858c"
-}
-```
-
-# Session - 26/08/2019
-
-## Student, Course, Enrollment API's
-
-## Student API
-
-### GET API
-
-#### URL
-
-```
-api/student/get
-```
-
-### POST API - Add Student
-
-#### URL
-
-```
-api/student/add
-```
-
-#### Request
-
-```
-{
-	"student" :
-	{
-		"StudentName" : "Salman Bukhari",
-		"MobileNumber" : "+92 333 4422233"
-	}
-}
-```
-
-## Course API
-
-### GET API
-
-#### URL
-
-```
-api/course/get
-```
-
-### POST API - Add Course
-
-#### URL
-
-```
-api/course/add
-```
-
-#### Request
-
-```
-{
-	"course" : {
-		"CourseCode" : "AES431",
-		"CourseName" : "Computer Sceince"
-	}
-}
-```
-
-## Enrollment API
-
-### GET API
-
-#### URL
-
-```
-api/enrollment/get
-```
-
-### POST API - Add Enrollment
-
-#### URL
-
-```
-api/enrollment/add
-```
-
-#### Request
-
-```
-{
-	"enrollment" : {
-		"StudentId" : "5d63bc2a2a149b48c410e613",
-		"CourseId" : "5d63bf9127630f1d2cdc54e4"
-	}
-}
-```
-
-# Session - 27/08/2019
-
-## Mongoose Concepts - Virtual, Bcrypt
-
-#### URL
-
-```
-api/parking/create/user
-```
-
-#### Request
-
-```
-{
-	"first_name" : "Salman",
-	"last_name" : "Bukhari",
-	"email" : "salmanbukhara@gmail.com",
-	"password" : "123456",
-	"phone_no" : "+92-333-4422114"
-}
-```
-
-Encrypt Password using bcrypt
-
-# Assignment Login Credentials check via BCrypt 27/08/2019
-
-#### URL
-
-```
-/api/parking/login
-```
-
-#### Request
-
-```
-{
-	"email" : "salmanbukharasi@gmail.com",
-	"password" : "123456"
 }
 ```
 
@@ -289,8 +48,207 @@ Encrypt Password using bcrypt
 
 ```
 {
-    "msg": "Logged in successfully",
-    "isMatch": true
+    "result": {
+        "_id": "5d7f84332fdd0b137461db4c",
+        "FirstName": "Administrator",
+        "LastName": "",
+        "Username": "admin",
+        "Email": "salmanbukhari37@gmail.com",
+        "Password": "$2a$10$iH7ThC2rPUdW8mTLdXbChO35JVZ/L1iozaOxTRQwmeE2znbcjW/XW",
+        "PhoneNo": "+92-333-4422114",
+        "LoginTime": "2019-09-16T12:46:43.127Z",
+        "createdAt": "2019-09-16T12:46:43.134Z",
+        "updatedAt": "2019-09-16T12:46:43.134Z",
+        "__v": 0
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiX2lkIjoiNWQ3Zjg0MzMyZmRkMGIxMzc0NjFkYjRjIiwiRmlyc3ROYW1lIjoiQWRtaW5pc3RyYXRvciIsIkxhc3ROYW1lIjoiIiwiVXNlcm5hbWUiOiJhZG1pbiIsIkVtYWlsIjoic2FsbWFuYnVraGFyaTM3QGdtYWlsLmNvbSIsIlBhc3N3b3JkIjoiJDJhJDEwJGlIN1RoQzJyUFVkVzhtVExkWGJDaE8zNUpWWi9MMWlvemFPeFRSUXdtZUUyem5iY2pXL1hXIiwiUGhvbmVObyI6Iis5Mi0zMzMtNDQyMjExNCIsIkxvZ2luVGltZSI6IjIwMTktMDktMTZUMTI6NDY6NDMuMTI3WiIsImNyZWF0ZWRBdCI6IjIwMTktMDktMTZUMTI6NDY6NDMuMTM0WiIsInVwZGF0ZWRBdCI6IjIwMTktMDktMTZUMTI6NDY6NDMuMTM0WiIsIl9fdiI6MH0sImlhdCI6MTU2ODY1NzMzNywiZXhwIjoxNTY4Njg3MzM3fQ.EWkKTqkmsYjiNgcBYmGXqWc9GAgJYiOABzPulmVshzs"
+}
+```
+
+### Create User
+
+```
+[POST] https://assignment-front-app.herokuapp.com/user
+```
+
+#### Request
+
+```
+{
+	"userData" : {
+		"FirstName" : "Administrator",
+		"LastName" : "",
+		"Username" : "admins",
+		"Email" : "salmanbukhari37ss@gmail.com",
+		"Password" : "123456",
+		"PhoneNo" : "+92-333-4422114"
+	}
+}
+```
+
+#### Response
+
+```
+{
+    "_id": "5d7fd00bfc83b22418479b1e",
+    "FirstName": "Administrator",
+    "LastName": "",
+    "Username": "admins",
+    "Email": "salmanbukhari37ss@gmail.com",
+    "Password": "$2a$10$EFUh24i7E7ATcmZLHuGVhuM.kTrZzXodqF1B1GNyesqH2NRHDiGU2",
+    "PhoneNo": "+92-333-4422114",
+    "LoginTime": "2019-09-16T18:10:19.543Z",
+    "createdAt": "2019-09-16T18:10:19.550Z",
+    "updatedAt": "2019-09-16T18:10:19.550Z",
+    "__v": 0
+}
+```
+
+### Car Api's
+
+### POST Car
+
+```
+[POST] https://assignment-front-app.herokuapp.com/api/car
+```
+
+#### Request
+
+```
+{
+	"carData" : {
+		"CarBrand" : "Toyota",
+		"CarModel" : "BMW X6",
+		"Color" : "Golden",
+		"EngineSize" : "3",
+		"ProductionYear" : "2015",
+		"RegistrationNumber" : "45673",
+		"FuelType" : "Petrol",
+		"Mileage" : "12",
+		"BodyType" : "Convertable"
+	}
+}
+```
+
+#### Response
+
+```
+{
+    "_id": "5d7fd078fc83b22418479b1f",
+    "CarBrand": "Toyota",
+    "CarModel": "BMW X6",
+    "Color": "Golden",
+    "EngineSize": 3,
+    "ProductionYear": 2015,
+    "RegistrationNumber": 45673,
+    "FuelType": "Petrol",
+    "Mileage": 12,
+    "BodyType": "Convertable",
+    "createdAt": "2019-09-16T18:12:08.801Z",
+    "updatedAt": "2019-09-16T18:12:08.801Z",
+    "__v": 0
+}
+```
+
+### PUT Car
+
+```
+[PUT] https://assignment-front-app.herokuapp.com/api/car
+```
+
+#### Request
+
+```
+{
+	"id" : "5d7f998a36b360221cd2f3d0",
+	"carData" : {
+		"CarBrand" : "Toyota",
+		"CarModel" : "BMW X6",
+		"Color" : "Golden",
+		"EngineSize" : "3",
+		"ProductionYear" : "2015",
+		"RegistrationNumber" : "45673",
+		"FuelType" : "Petrol",
+		"Mileage" : "12",
+		"BodyType" : "Convertable"
+	}
+}
+```
+
+#### Response
+
+```
+{
+    "message": "Record updated successfully",
+    "result": {
+        "_id": "5d7f998a36b360221cd2f3d0",
+        "createdAt": "2019-09-16T14:17:46.809Z",
+        "updatedAt": "2019-09-16T14:36:52.009Z",
+        "__v": 0,
+        "BodyType": "Convertable",
+        "CarBrand": "Toyota",
+        "CarModel": "BMW X6",
+        "Color": "Golden",
+        "EngineSize": 3,
+        "FuelType": "Petrol",
+        "Mileage": 12,
+        "ProductionYear": 2015,
+        "RegistrationNumber": 45673
+    }
+}
+```
+
+### GET Car
+
+```
+[GET] https://assignment-front-app.herokuapp.com/api/car
+```
+
+#### Response
+
+```
+[
+    {
+        "_id": "5d7f9998ed9900163c4587e9",
+        "CarBrand": "Toyota",
+        "CarModel": "BMW X6",
+        "Color": "Golden",
+        "EngineSize": 3,
+        "ProductionYear": 2015,
+        "RegistrationNumber": 45673,
+        "FuelType": "Petrol",
+        "Mileage": 12,
+        "BodyType": "Convertable",
+        "createdAt": "2019-09-16T14:18:00.554Z",
+        "updatedAt": "2019-09-16T14:18:00.554Z",
+        "__v": 0
+    }
+]
+```
+
+### GET Car by ID
+
+```
+[GET] https://assignment-front-app.herokuapp.com/api/car/5d7f9998ed9900163c4587e9
+```
+
+#### Response
+
+```
+{
+    "_id": "5d7f9998ed9900163c4587e9",
+    "CarBrand": "Toyota",
+    "CarModel": "BMW X6",
+    "Color": "Golden",
+    "EngineSize": 3,
+    "ProductionYear": 2015,
+    "RegistrationNumber": 45673,
+    "FuelType": "Petrol",
+    "Mileage": 12,
+    "BodyType": "Convertable",
+    "createdAt": "2019-09-16T14:18:00.554Z",
+    "updatedAt": "2019-09-16T14:18:00.554Z",
+    "__v": 0
 }
 ```
 
