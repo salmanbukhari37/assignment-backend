@@ -61,6 +61,10 @@ app.use("/login", (req, res) => {
 // // api routes
 app.use("/api", userRoute.router);
 
+app.use("/", (req, res) => {
+  res.send("hello");
+});
+
 app.listen(process.env.PORT || PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
