@@ -62,7 +62,9 @@ app.use("/login", (req, res) => {
 app.use("/api", userRoute.router);
 
 app.use("/", (req, res) => {
-  res.send("hello");
+  res.status(200).json({
+    message: "hello"
+  });
 });
 
 app.listen(process.env.PORT || PORT, () => {
