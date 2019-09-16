@@ -5,7 +5,7 @@
 ### Login
 
 ```
-[POST] https://assignment-front-app.herokuapp.com/login
+[POST] https://assignment-backend.herokuapp.com/login
 ```
 
 #### Request
@@ -43,7 +43,7 @@
 ### Create User
 
 ```
-[POST] https://assignment-front-app.herokuapp.com/user
+[POST] https://assignment-backend.herokuapp.com/user
 ```
 
 #### Request
@@ -84,7 +84,7 @@
 ### POST Car
 
 ```
-[POST] https://assignment-front-app.herokuapp.com/api/car
+[POST] https://assignment-backend.herokuapp.com/api/car
 ```
 
 #### Request
@@ -128,7 +128,7 @@
 ### PUT Car
 
 ```
-[PUT] https://assignment-front-app.herokuapp.com/api/car
+[PUT] https://assignment-backend.herokuapp.com/api/car
 ```
 
 #### Request
@@ -176,7 +176,7 @@
 ### GET Car
 
 ```
-[GET] https://assignment-front-app.herokuapp.com/api/car
+[GET] https://assignment-backend.herokuapp.com/api/car
 ```
 
 #### Response
@@ -204,7 +204,7 @@
 ### GET Car by ID
 
 ```
-[GET] https://assignment-front-app.herokuapp.com/api/car/5d7f9998ed9900163c4587e9
+[GET] https://assignment-backend.herokuapp.com/api/car/5d7f9998ed9900163c4587e9
 ```
 
 #### Response
