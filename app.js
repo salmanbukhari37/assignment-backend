@@ -3,7 +3,8 @@ var bodyParser = require("body-parser");
 var cors = require("cors");
 var path = require("path");
 var userRoute = require("./routes/route");
-// require("./dbConfig/config");
+var restrictedRoute = require("./routes/restricted-route");
+require("./dbConfig/config");
 const jwt = require("jsonwebtoken");
 
 const UserSchema = require("./models/userModel");
@@ -18,54 +19,48 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// serving static content
-// app.use(express.static(path.join(__dirname, "public")));
-
-// public routes
-// app.use("/", pageRoute);
-
 app.use("/login", (req, res) => {
   let request = req.body,
     username = request.loginCredentials.username,
     password = request.loginCredentials.password;
 
   UserSchema.findOne({ Username: username }, (err, result) => {
-    // console.log(result);
-    result.comparePassword(password, (err, isMatch) => {
-      if (isMatch) {
-        jwt.sign(
-          { result },
-          "secretKey",
-          { expiresIn: "30000s" },
-          (err, token) => {
-            if (err) {
-              err.status(403).send(err);
-            } else {
-              res.status(200).json({
-                result,
-                token
-              });
+    if (!result) {
+      res.json({
+        msg: "Username/Password is not correct"
+      });
+    } else {
+      result.comparePassword(password, (err, isMatch) => {
+        if (isMatch) {
+          jwt.sign(
+            { result },
+            "secretKey",
+            { expiresIn: "30000s" },
+            (err, token) => {
+              if (err) {
+                err.status(403).send(err);
+              } else {
+                res.status(200).json({
+                  result,
+                  token
+                });
+              }
             }
-          }
-        );
-      } else {
-        res.json({
-          msg: "Username/Password is not correct",
-          isMatch: isMatch
-        });
-      }
-    });
+          );
+        } else {
+          res.json({
+            msg: "Username/Password is not correct",
+            isMatch: isMatch
+          });
+        }
+      });
+    }
   });
 });
 
 // // api routes
-app.use("/api", userRoute.router);
-
-app.use("/", (req, res) => {
-  UserSchema.find((err, result) => {
-    res.json(result);
-  });
-});
+app.use("/", userRoute.router);
+app.use("/api", restrictedRoute.router);
 
 app.listen(process.env.PORT || PORT, () => {
   console.log(`listening on port ${PORT}`);
