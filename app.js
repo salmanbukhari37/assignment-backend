@@ -6,7 +6,7 @@ var userRoute = require("./routes/route");
 require("./dbConfig/config");
 const jwt = require("jsonwebtoken");
 
-const userSchema = require("./models/userModel");
+const UserSchema = require("./models/userModel");
 
 const PORT = 5000;
 
@@ -29,7 +29,7 @@ app.use("/login", (req, res) => {
     username = request.loginCredentials.username,
     password = request.loginCredentials.password;
 
-  userSchema.findOne({ Username: username }, (err, result) => {
+  UserSchema.findOne({ Username: username }, (err, result) => {
     // console.log(result);
     result.comparePassword(password, (err, isMatch) => {
       if (isMatch) {
