@@ -58,7 +58,7 @@ app.use("/login", (req, res) => {
         // });
       } else {
         res.json({
-          msg: "Username/Password is not correct.",
+          msg: "Username/Password is not correct",
           isMatch: isMatch
         });
       }
