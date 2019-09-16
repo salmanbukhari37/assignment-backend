@@ -3,7 +3,6 @@ var bodyParser = require("body-parser");
 var cors = require("cors");
 var path = require("path");
 var userRoute = require("./routes/route");
-var pageRoute = require("./routes/page-route").pageRouter;
 require("./dbConfig/config");
 const jwt = require("jsonwebtoken");
 
@@ -20,19 +19,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // serving static content
-app.use(express.static(path.join(__dirname, "public")));
-
-app.set("view engine", "ejs");
+// app.use(express.static(path.join(__dirname, "public")));
 
 // public routes
-app.use("/", pageRoute);
+// app.use("/", pageRoute);
 
 app.use("/login", (req, res) => {
   let request = req.body,
-    email = request.email,
-    password = request.password;
+    username = request.loginCredentials.username,
+    password = request.loginCredentials.password;
 
-  userSchema.findOne({ Email: email }, (err, result) => {
+  userSchema.findOne({ Username: username }, (err, result) => {
     // console.log(result);
     result.comparePassword(password, (err, isMatch) => {
       if (isMatch) {
@@ -51,11 +48,6 @@ app.use("/login", (req, res) => {
             }
           }
         );
-
-        // res.json({
-        //   msg: "Logged in successfully",
-        //   isMatch: isMatch
-        // });
       } else {
         res.json({
           msg: "Username/Password is not correct",
@@ -66,7 +58,7 @@ app.use("/login", (req, res) => {
   });
 });
 
-// api routes
+// // api routes
 app.use("/api", userRoute.router);
 
 app.listen(process.env.PORT || PORT, () => {

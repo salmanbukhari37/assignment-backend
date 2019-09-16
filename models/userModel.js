@@ -4,15 +4,17 @@ var bcrypt = require("bcrypt-nodejs"),
   MAX_LOGIN_ATTEMPTS = 5,
   LOCK_TIME = 2 * 60 * 60 * 1000;
 
-const userSchema = mongoose.Schema(
+const UserSchema = mongoose.Schema(
   {
     FirstName: {
       type: String,
       require: true
     },
     LastName: {
-      type: String,
-      require: true
+      type: String
+    },
+    Username: {
+      type: String
     },
     Email: {
       type: String,
@@ -28,7 +30,7 @@ const userSchema = mongoose.Schema(
     PhoneNo: {
       type: String
     },
-    loginTime: {
+    LoginTime: {
       type: Date,
       default: Date.now,
       require: false
@@ -39,7 +41,7 @@ const userSchema = mongoose.Schema(
   }
 );
 
-userSchema.pre("save", function(next) {
+UserSchema.pre("save", function(next) {
   var user = this;
 
   // only hash the password if it has been modified ( or is new )
@@ -59,7 +61,7 @@ userSchema.pre("save", function(next) {
   });
 });
 
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
+UserSchema.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.Password, (err, result) => {
     if (err) return cb(err);
 
@@ -67,4 +69,4 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
   });
 };
 
-module.exports = mongoose.model("UserSchema", userSchema);
+module.exports = mongoose.model("UserSchema", UserSchema);

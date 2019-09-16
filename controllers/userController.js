@@ -1,21 +1,19 @@
-// Login
-const login = (req, res) => {
-  // login logic
-  res.send("Login page");
-};
+const UserSchema = require("../models/userModel");
 
-// Signup
-const signup = (req, res) => {
-  // sign up logic
-  res.send("Sign Up Page");
-};
+const CreateUser = (req, res) => {
+  let request = req.body.userData;
 
-const test = (req, res) => {
-  res.send("Hello Gitss");
+  let userSchema = new UserSchema(request);
+
+  userSchema.save((err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.status(200).json(result);
+    }
+  });
 };
 
 module.exports = {
-  login,
-  signup,
-  test
+  CreateUser
 };
