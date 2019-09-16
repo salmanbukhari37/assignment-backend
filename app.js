@@ -62,8 +62,8 @@ app.use("/login", (req, res) => {
 app.use("/api", userRoute.router);
 
 app.use("/", (req, res) => {
-  res.status(200).json({
-    message: "hello"
+  UserSchema.find((err, result) => {
+    res.json(result);
   });
 });
 
